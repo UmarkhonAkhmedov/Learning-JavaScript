@@ -4,21 +4,19 @@
 //By considering the terms in the Fibonacci sequence whose values do not exceed four million.
 //Find the sum of the even-valued terms.
 
-function fibonacci(input){
-    var num1 = 0, num2 = 1;
-    var sum = 0 count = 0;
-    var nth;
-}
+function solution(n) {
+  var a = 1, b = 2;
+  var s = 0;
+  var t;
 
-while (count <= input){
-    nth = num1 + num2;
-    num1 = num2;
-    num2 = nth;
-    if(n1 % 2 == 0){
-        sum += n1;
-    }
-    count +=1;
-    return sum;
+  while (a <= n) {
+    t = a;
+    a = b;
+    b+= t;
+    if (t % 2 == 0)
+      s+= t;
+  }
+  return s;
 }
 console.log(solution(4e6));
 
