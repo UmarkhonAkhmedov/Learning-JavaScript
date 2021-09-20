@@ -42,3 +42,20 @@ console.log(fruit.replace('ban', '123'));
 console.log(fruit.toUpperCase());
 console.log(fruit.toLowerCase());
 console.log(Fruit.split('')); // (',')
+
+// Array
+let fruits = ['banana', 'apple', 'orange', 'pineapples'];
+let fruits = new Array ['banana', 'apple', 'orange', 'pineapples'];
+
+ for (let i = 0; i < fruits.length; i++) {
+   console.log(fruits[i]);
+ }
+
+// Array Common Methods
+console.log('to string', fruits.toString());
+console.log(fruits.join(' - '));
+
+
+//  Objects in JavaScript
+let student = {first: 'Rafeh', last: 'Qazi'};
+console.log(student.first);
