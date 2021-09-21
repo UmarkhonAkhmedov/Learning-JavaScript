@@ -59,3 +59,28 @@ console.log(fruits.join(' - '));
 //  Objects in JavaScript
 let student = {first: 'Rafeh', last: 'Qazi'};
 console.log(student.first);
+
+// Conditionals, Control flow (if else)
+var age = prompt("What us your age?");
+if ((age >= 18) && (age <= 35)){
+  statuss = 'target demo';
+  console.log(statuss);
+} else {
+  statuss = 'not my audience';
+  console.log(statuss)
+}
+
+// Switch statements
+
+switch (6){
+  case 0:
+    text = "weekend";
+  case 5:
+    text = "weekend"
+  case 6:
+    text = "weekend"
+  default:
+    text = "weekday"
+}
+
+console.log(text);
