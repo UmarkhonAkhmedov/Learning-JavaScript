@@ -36,6 +36,7 @@ header {
 }
 
 header input {
+    font-family: inherit;
     background-color: #eee;
     border: none;
     border-radius: 3px;
@@ -45,7 +46,7 @@ header input {
 header button {
     background-color: transparent;
     border: none;
-    color: #aaa;
+    color: rgb(138, 129, 141);
     font-size: 1.5rem;
     margin-left: 10px;
 }
@@ -53,7 +54,7 @@ header button {
 .fav-container {
     background-color: rgb(243, 255, 255);
     text-align: center;
-    padding: 1rem ;
+    padding: 0.25rem 1rem ;
 }
 
 .fav-meals {
@@ -81,4 +82,54 @@ header button {
 .fav-meals li span {
     font-size: 0.9rem;
 }
+
+.meal {
+    border-radius: 3px;
+    box-shadow: 0 0 10px 2px #3333331A;
+    margin: 1.5rem;
+    overflow: hidden;
+}
+
+.meal-header {
+    position: relative;
+}
+.meal-header .random {
+    position: absolute;
+    top: 1rem;
+    background-color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.meal-header img {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
+
+.meal-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.meal-body h4 {
+    margin: 0;
+}
+
+.meal-body .fav-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.meal-body .fav-btn.active {
+    color: red;
+}
+
+
 
