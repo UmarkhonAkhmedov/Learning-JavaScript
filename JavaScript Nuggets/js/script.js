@@ -119,15 +119,140 @@
 // console.log(app);
 
 
-const state = {
-  loading: true,
-  name: '',
-  job: ''
+// const state = {
+//   loading: true,
+//   name: '',
+//   job: ''
+// }
+
+// function updateState(key, value){
+//   state[key] = value
+// }
+// // Update the value
+// updateState('name', 'john');
+// console.log(state);
+
+
+/////////////////////////////////////////////////
+// Filter and Find
+// Filter
+// const people = [
+//   {name: 'bob', age: 20, position: 'developer'},
+//   {name: 'peter', age: 25, position: 'designer'},
+//   {name: 'susy', age: 30, position: 'the boss'},
+//   {name: 'anna', age: 35, position: 'intern'},
+// ]
+
+// const youngPeople = people.filter((person) => {
+//   // if(person.age < 30){
+//   //   return person;
+//   // }
+//   return person.age < 30;
+// });
+
+
+// const developers = people.filter((person) => person.position === 'developer');
+
+
+// // Find
+// const peter = people.find((person) => person.name === 'peter');
+// const fruits = ['orange', 'pear', 'lemon']
+// const fruit = fruits.find((fruit)=>fruit === 'lemon');
+
+
+/////////////////////////////////////////////////
+// Reduce Basics
+// const staff = [
+//   { name: 'bob', age: 20, position: 'developer', salary: 100 },
+//   { name: 'peter', age: 25, position: 'designer', salary: 300 },
+//   { name: 'susy', age: 30, position: 'the boss', salary: 400 },
+//   { name: 'anna', age: 35, position: 'intern', salary: 10 },
+// ];
+
+
+// const dailyTotal = staff.reduce((total, person) => {
+//   total += person.salary;
+//   return total;
+// }, 0)
+
+/////////////////////////////////////////////////
+// Reduce Objects
+const cart = [
+  {
+    title: 'Samsung Galaxy S7',
+    price: 599.99,
+    amount: 1,
+  },
+  {
+    title: 'Google pixel ',
+    price: 499.99,
+    amount: 2,
+  },
+  {
+    title: 'Xiaomi Redmi Note 2',
+    price: 699.99,
+    amount: 4,
+  },
+  {
+    title: 'Xiaomi Redmi Note 5',
+    price: 399.99,
+    amount: 3,
+  },
+]
+
+let total = cart.reduce((total, cartItem) => {
+  const {amount, price} = cartItem;
+  // Count Items
+  total.totalItems += amount;
+  // Count Sum
+  total.cartTotal += amount * price;
+  return total;
+}, {
+  totalItems = 0,
+  cartTotal: 0,
+})
+
+
+const url = 'https://api.github.com/users/john-smilga/repos?per_page=100'
+
+
+const fetchRepos = async () => {
+  const respone = await fetch(url);
+  const data = await Response.json();
+  const newData = data.reduce((total, repo) => {
+    const {language} =repo;
+    if(language){
+      if(total[language]){
+        total[language] = total[language] + 1 ;
+      }else {
+        total[language] = 1
+      }
+    }
+
+    if(language){
+      total[language] = total[language] + 1 || 1
+    }
+
+    return total;
+
+  }, {})
 }
 
-function updateState(key, value){
-  state[key] = value
-}
-// Update the value
-updateState('name', 'john');
-console.log(state);
+fetchRepos()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
