@@ -177,72 +177,153 @@
 
 /////////////////////////////////////////////////
 // Reduce Objects
-const cart = [
-  {
-    title: 'Samsung Galaxy S7',
-    price: 599.99,
-    amount: 1,
-  },
-  {
-    title: 'Google pixel ',
-    price: 499.99,
-    amount: 2,
-  },
-  {
-    title: 'Xiaomi Redmi Note 2',
-    price: 699.99,
-    amount: 4,
-  },
-  {
-    title: 'Xiaomi Redmi Note 5',
-    price: 399.99,
-    amount: 3,
-  },
-]
+// const cart = [
+//   {
+//     title: 'Samsung Galaxy S7',
+//     price: 599.99,
+//     amount: 1,
+//   },
+//   {
+//     title: 'Google pixel ',
+//     price: 499.99,
+//     amount: 2,
+//   },
+//   {
+//     title: 'Xiaomi Redmi Note 2',
+//     price: 699.99,
+//     amount: 4,
+//   },
+//   {
+//     title: 'Xiaomi Redmi Note 5',
+//     price: 399.99,
+//     amount: 3,
+//   },
+// ]
 
-let total = cart.reduce((total, cartItem) => {
-  const {amount, price} = cartItem;
-  // Count Items
-  total.totalItems += amount;
-  // Count Sum
-  total.cartTotal += amount * price;
-  return total;
-}, {
-  totalItems = 0,
-  cartTotal: 0,
-})
-
-
-const url = 'https://api.github.com/users/john-smilga/repos?per_page=100'
+// let total = cart.reduce((total, cartItem) => {
+//   const {amount, price} = cartItem;
+//   // Count Items
+//   total.totalItems += amount;
+//   // Count Sum
+//   total.cartTotal += amount * price;
+//   return total;
+// }, {
+//   totalItems = 0,
+//   cartTotal: 0,
+// })
 
 
-const fetchRepos = async () => {
-  const respone = await fetch(url);
-  const data = await Response.json();
-  const newData = data.reduce((total, repo) => {
-    const {language} =repo;
-    if(language){
-      if(total[language]){
-        total[language] = total[language] + 1 ;
-      }else {
-        total[language] = 1
-      }
-    }
-
-    if(language){
-      total[language] = total[language] + 1 || 1
-    }
-
-    return total;
-
-  }, {})
-}
-
-fetchRepos()
+// const url = 'https://api.github.com/users/john-smilga/repos?per_page=100'
 
 
+// const fetchRepos = async () => {
+//   const respone = await fetch(url);
+//   const data = await Response.json();
+//   const newData = data.reduce((total, repo) => {
+//     const {language} =repo;
+//     if(language){
+//       if(total[language]){
+//         total[language] = total[language] + 1 ;
+//       }else {
+//         total[language] = 1
+//       }
+//     }
+
+//     if(language){
+//       total[language] = total[language] + 1 || 1
+//     }
+
+//     return total;
+
+//   }, {})
+// }
+
+// fetchRepos()
+
+/////////////////////////////////////////////////
+// Destructing Array
+
+// const fruits = ['orange', 'banana', 'lemon'];
+// const friends = ['john', 'peter', 'bob', 'anna', 'kelly'];
+
+// const fruit1 = fruits[0];
+// const fruit2 = fruits[1];
+// const fruit3 = fruits[2];
+
+// const [john] = friends;
+// console.log(john);
 
 
+// let first = 'bob';
+// let second = 'john';
+
+// [second, first] = [first, second];
+// console.log(first, second);
+
+/////////////////////////////////////////////////
+// Destructing Object
+
+// const bob = {
+//   first: 'bob',
+//   last: 'sanders',
+//   city: 'chicago',
+//   siblings: {
+//     sister: 'jane',
+//   },
+// };
+
+// const {first, last, city, siblings:{sister}} = bob
+
+// const firstName = bob.first;
+// const lastName = bob.last;
+// const sister = bob.siblings.sister;
+
+
+// function printPerson({first, last}){
+//   // const {first, last} = person;
+//   console.log(first, last);
+// }
+
+// printPerson(bob);
+
+
+/////////////////////////////////////////////////
+// Rest Operator
+// Arrays
+// const fruits = ['apple', 'orange', 'lemon', 'banana', 'pear'];
+
+// const [first, ...restOfTheFruits] = fruits;
+// // Delete first item and get other all parts
+// const soecificFruit = restOfTheFruits.find((fruit) => fruit === 'lemon');
+
+// // Objects
+// const person = { name: 'john', lastName: 'smith', job: 'developer' };
+
+// const {job, ...rest} = person;
+// console.log(job, rest);
+
+// // Functions
+// const getAverage = (name,  ...scores){
+//   console.log(name);
+//   console.log(scores);
+//   const average = scores.reduce((total, item) =>{return total += item},0)/scores.length;
+// }
+
+// getAverage(person.name, 89, 76, 81, 100)
+
+
+/////////////////////////////////////////////////
+// Spread Operator
+// const udemy = 'udemy';
+
+// const letters = [...udemy];
+// console.log(letters);
+
+// const boys = ['john', 'peter', 'bob'];
+// const girls = ['susan', 'anna'];
+// const friends = [...boys, ...girls, bestFriend];
+
+// const bestFriend = 'arnold';
 
 
 
