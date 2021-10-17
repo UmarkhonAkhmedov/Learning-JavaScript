@@ -380,20 +380,88 @@
 
 /////////////////////////////////////////////////
 // Callback Functions
-function makeUppercase(value){
-  console.log(value.toUpperCase())
+// function makeUppercase(value){
+//   console.log(value.toUpperCase())
+// }
+
+// makeUppercase('peter');
+
+
+// function handleName(name, cb){
+//   const fullName = `${name} smith`
+//   cb(fullName);
+// }
+
+// handleName('peter', makeUppercase())
+
+/////////////////////////////////////////////////
+// Callback Hell
+const first = document.querySelector('.first')
+const second = document.querySelector('.second')
+const third = document.querySelector('.third')
+const btn = document.querySelector('.btn')
+
+
+btn.addEventListener('click', () => {
+  setTimeout(() => {
+    first.style.color = 'red'
+    setTimeout(() => {
+      second.style.color = 'blue'
+      setTimeout(() => {
+        third.style.color = 'green'
+      }, 2000)
+    }, 3000)
+  }, 1000)
+})
+
+
+/////////////////////////////////////////////////
+// Promises
+
+const value = 2;
+
+const promise = new Promise((resolve, rejected) => {
+  const random = Math.floor(Math.random * 3);
+  if(random === value){
+    resolve('You guessed correctly')
+  } else {
+    rejected("Wrong number")
+  }
+  resolve([1, 2, 3]);
+  rejected("There was an error");
+})
+
+consoles.log(promise.value);
+
+promise.then((data) => {
+  console.log(data).catch((err) => {
+    console.log(err);
+  });
+})
+
+
+/////////////////////////////////////////////////
+// Promises Example
+
+const btn = document.querySelector('.btn')
+
+btn.addEventListener('click', () => {
+  console.log(addColor(1000, '.first', 'red'))
+})
+
+function addColor(time, selector, color) {
+  const element = document.querySelector(selector)
+  return new Promise((resolve, reject) => {
+    if (element) {
+      setTimeout(() => {
+        element.style.color = color
+        // resolve(data)
+      }, time)
+    } else {
+      reject(`There is no such element : "${selector}"`)
+    }
+  })
 }
-
-makeUppercase('peter');
-
-
-function handleName(name, cb){
-  const fullName = `${name} smith`
-  cb(fullName);
-}
-
-handleName('peter', makeUppercase())
-
 
 
 
