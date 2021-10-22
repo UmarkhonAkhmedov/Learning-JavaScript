@@ -396,23 +396,23 @@
 
 /////////////////////////////////////////////////
 // Callback Hell
-const first = document.querySelector('.first')
-const second = document.querySelector('.second')
-const third = document.querySelector('.third')
-const btn = document.querySelector('.btn')
+// const first = document.querySelector('.first')
+// const second = document.querySelector('.second')
+// const third = document.querySelector('.third')
+// const btn = document.querySelector('.btn')
 
 
-btn.addEventListener('click', () => {
-  setTimeout(() => {
-    first.style.color = 'red'
-    setTimeout(() => {
-      second.style.color = 'blue'
-      setTimeout(() => {
-        third.style.color = 'green'
-      }, 2000)
-    }, 3000)
-  }, 1000)
-})
+// btn.addEventListener('click', () => {
+//   setTimeout(() => {
+//     first.style.color = 'red'
+//     setTimeout(() => {
+//       second.style.color = 'blue'
+//       setTimeout(() => {
+//         third.style.color = 'green'
+//       }, 2000)
+//     }, 3000)
+//   }, 1000)
+// })
 
 
 /////////////////////////////////////////////////
@@ -420,48 +420,116 @@ btn.addEventListener('click', () => {
 
 const value = 2;
 
-const promise = new Promise((resolve, rejected) => {
-  const random = Math.floor(Math.random * 3);
-  if(random === value){
-    resolve('You guessed correctly')
-  } else {
-    rejected("Wrong number")
-  }
-  resolve([1, 2, 3]);
-  rejected("There was an error");
-})
+// const promise = new Promise((resolve, rejected) => {
+//   const random = Math.floor(Math.random * 3);
+//   if(random === value){
+//     resolve('You guessed correctly')
+//   } else {
+//     rejected("Wrong number")
+//   }
+//   resolve([1, 2, 3]);
+//   rejected("There was an error");
+// })
 
-consoles.log(promise.value);
+// consoles.log(promise.value);
 
-promise.then((data) => {
-  console.log(data).catch((err) => {
-    console.log(err);
-  });
-})
+// promise.then((data) => {
+//   console.log(data).catch((err) => {
+//     console.log(err);
+//   });
+// })
 
 
 /////////////////////////////////////////////////
 // Promises Example
 
-const btn = document.querySelector('.btn')
+// const btn = document.querySelector('.btn')
 
-btn.addEventListener('click', () => {
-  console.log(addColor(1000, '.first', 'red'))
-})
+// btn.addEventListener('click', () => {
+//   console.log(addColor(1000, '.first', 'red'))
+// })
 
-function addColor(time, selector, color) {
-  const element = document.querySelector(selector)
-  return new Promise((resolve, reject) => {
-    if (element) {
-      setTimeout(() => {
-        element.style.color = color
-        // resolve(data)
-      }, time)
-    } else {
-      reject(`There is no such element : "${selector}"`)
-    }
-  })
-}
+// function addColor(time, selector, color) {
+//   const element = document.querySelector(selector)
+//   return new Promise((resolve, reject) => {
+//     if (element) {
+//       setTimeout(() => {
+//         element.style.color = color
+//         // resolve(data)
+//       }, time)
+//     } else {
+//       reject(`There is no such element : "${selector}"`)
+//     }
+//   })
+// }
+
+/////////////////////////////////////////////////
+// Async and Await
+
+// const example = async () => {
+//   return 'hello there'
+// }
+
+// async  function someFunc (){
+//   const result = await example()
+//   console.log(result);
+// }
+
+// const users = [
+//   { id: 1, name: 'john' },
+//   { id: 2, name: 'susan' },
+//   { id: 3, name: 'anna' },
+// ]
+
+// const articles = [
+//   { userId: 1, articles: ['one', 'two', 'three'] },
+//   { userId: 2, articles: ['four', 'five'] },
+//   { userId: 3, articles: ['six', 'seven', 'eight', 'nine'] },
+// ]
+
+// function getUser(name){
+//   return new Promise((resolve, reject)=> {
+//     const user = users.find((user) => user.name === name);
+
+//     if(user){
+//       return resolve(user)
+//     } else {
+//       reject(`No such user with name : ${name}`)
+//     }
+
+//   })
+// }
+
+
+// getUser('susan')
+// .then((user) => getArticles(user.id))
+// .then((articles) => console.log(articles))
+// .catch((err) => console.log(err))
+
+// const getData = async () => {
+//   try {
+//     const user = await getUser('john');
+//     const articles = await getArticles(user.id);
+//     console.log(articles);
+//   } catch (error){
+//     console.log(error)
+//   }
+  
+//   console.log(user);
+// }
+
+/////////////////////////////////////////////////
+// Fetch API
+
+const url = 'https://www.course-api.com/react-tours-project'
+
+fetch(url)
+.then((resp) => console.log(resp))
+.catch((err) => console.log(err));
+
+
+
+
 
 
 
